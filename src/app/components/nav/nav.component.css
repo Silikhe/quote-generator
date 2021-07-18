@@ -1,6 +1,7 @@
 
 nav {
     background: transparent !important;
+    z-index: 1000;
 }
 
 .fixed {
@@ -17,7 +18,20 @@ nav {
   top: -50px;
   background: transparent;
   border: none !important;
-  color: #fff !;
+  color: #fff !important;
+}
+
+.fixed a{
+  color:black !important;
+}
+.nofixed a{
+  color: #fff !important;
+}
+
+
+
+.nofixed a:hover, .fixed a:hover{
+  color: #F94637 !important;
 }
 
 .navbar-brand img {
@@ -28,9 +42,6 @@ nav {
 .nav-item{
     margin-right: 30px;
     font-weight: bold;
-    color: #000 !important;
+    /* font-size: 20px; */
 }
 
-.nav-item:hover{
-    color: #F94637 !important;
-}
