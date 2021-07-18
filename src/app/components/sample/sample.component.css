@@ -1,0 +1,123 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: 250px;
+    margin-top: -60%;
+    width: 700px;
+    height: 500px;
+    background: none;
+    border-radius: 5px;
+    font-family: "dancing script", cursive;
+    overflow: hidden;
+    color: rgb(27, 27, 27);
+    letter-spacing: 0.5px;
+}
+.hidden {
+    display: none;
+}
+.inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s;
+    visibility: hidden;
+}
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, .6);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, .5);
+    font-size: 1.3rem;
+}
+.number::before {
+    content: "";
+    position: absolute;
+    top: -130px;
+    right: -30px;
+    width: 90px;
+    height: 180px;
+    background: var(--secondary-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, .5);
+}
+.number {
+    font-family: "josefin sans", sans serif;
+    position: absolute;
+    margin: 0;
+    top: 15px;
+    right: 15px;
+    color: rgba(249, 70, 55, 0.7);
+}
+.quote {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+.credit {
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    font-family: "josefin sans", sans serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.credit::before {
+    content: "⸛ ";
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+.fas {
+    font-size: 3.5rem;
+    position: absolute;
+    top: 12%;
+    left: 7%;
+    color: rgba(249, 70, 55, .2);
+}
+input {
+    width: 100%;
+    transition: 0.3s;
+}
+.button p {
+    background:rgba(249, 70, 55, .5);
+
+    color: #fff;
+
+    /* background: rgb(249, 70, 55); */
+    text-align: center;
+    /* color: #fff; */
+    padding: 1rem 0;
+    width: 100%;
+    font-family: "josefin sans", sans serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    transition: 0.2s ease-out;
+}
+.button p:hover {
+    border-top: 3px solid #F94637;
+    border-bottom: 2px solid #F94637;
+    color: #F94637;
+    background:none;
+
+    cursor: pointer;
+}
+#card-one:checked ~ .container .inner-one, #card-two:checked ~ .container .inner-two, #card-three:checked ~ .container .inner-three {
+    opacity: 1;
+    visibility: visible;
+}
+#card-one:checked ~ .container .inner-two, #card-two:checked ~ .container .inner-three, #card-three:checked ~ .container .inner-one {
+    transform: scale(0.85);
+    transform: scale(1) translate(-20rem);
+}
