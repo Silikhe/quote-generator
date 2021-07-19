@@ -1,6 +1,6 @@
+import { Quote } from './../../models/Quote';
 import { QuotesService } from './../../services/quotes.service';
 import { Component, OnInit } from '@angular/core';
-import { Quote } from './../../models/Quote';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({

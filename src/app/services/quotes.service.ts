@@ -26,14 +26,14 @@ export class QuotesService {
 
   constructor(public afs: AngularFirestore, private dialog: MatDialog) {
     this.quoteCollection = this.afs.collection('quotes');
-    this.quotes = this.afs.collection('quotes').valueChanges();
-    // this.quotes = this.afs.collection('quotes').snapshotChanges().map( (change: any) => {
-    //   return change.map((a: any) => {
-    //     const data = a.payload.doc.data() as Quote;
-    //     data.id = a.payload.doc.id;
-    //     return data;
-    //   })
-    // })
+    // this.quotes = this.afs.collection('quotes').valueChanges();
+    this.quotes = this.afs.collection('quotes').snapshotChanges().pipe(map( (change: any) => {
+      return change.map((a: any) => {
+        const data = a.payload.doc.data() as Quote;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }))
   }
 
   getQuotes() {
@@ -62,6 +62,7 @@ export class QuotesService {
   deleteQuote(quote: Quote) {
     this.quoteDoc = this.afs.doc(`quotes/${quote.id}`);
     this.quoteDoc.delete();
+    // console.log(quote.id)
   }
 
   onCreate(){

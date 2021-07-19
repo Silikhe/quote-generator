@@ -20,6 +20,7 @@ import { MyquotesComponent } from './components/myquotes/myquotes.component';
 import { AngularFireModule } from '@angular/fire';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { from } from 'rxjs';
@@ -50,9 +51,10 @@ import { environment } from '../environments/environment';
     MatCardModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    MatSnackBarModule,
   ],
   providers: [QuotesService],
   bootstrap: [AppComponent],
-  entryComponents:[MyquotesComponent]
+  entryComponents: [MyquotesComponent],
 })
 export class AppModule {}
