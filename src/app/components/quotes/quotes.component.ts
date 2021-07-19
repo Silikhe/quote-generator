@@ -1,8 +1,12 @@
-import { QuotesService } from './../../services/quotes.service';
+import { QuotesService } from './../../models/services/quotes.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Quote } from './../../models/Quote';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 export interface DialogData {
   animal: string;
@@ -21,7 +25,11 @@ export class QuotesComponent implements OnInit {
   animal: string;
   name: string;
 
-  constructor(public service: QuotesService, private _snackBar: MatSnackBar, public dialog: MatDialog) {}
+  constructor(
+    public service: QuotesService,
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     console.log('Run');
@@ -34,10 +42,10 @@ export class QuotesComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
-      data: {name: this.name, animal: this.animal}
+      data: { name: this.name, animal: this.animal },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       this.animal = result;
     });
@@ -48,41 +56,39 @@ export class QuotesComponent implements OnInit {
   }
 
   deleteQuote(event: any, quote: Quote) {
-    // this.openDialog()
+    // this.openDialog();
     alert(`Are you sure you want to delete - ${quote.quote}`);
     this.service.deleteQuote(quote);
     console.log(event.target);
-    this.openSnackBar(`You have deleted quote "${quote.quote} " created by ${quote.credit}`, `Dismis`)
+    this.openSnackBar(
+      `You have deleted quote "${quote.quote} " created by ${quote.credit}`,
+      `Dismis`
+    );
   }
 
   status: boolean = false;
 
-  thumbUp(){
+  thumbUp() {
     this.thumpsUp++;
-    console.log(this.thumpsUp)
-    this.status = !this.status; 
-          
+    console.log(this.thumpsUp);
+    this.status = !this.status;
   }
 
-  thumbDown(){
+  thumbDown() {
     this.thumpsUp--;
-    console.log(this.thumpsUp)
-    this.status = !this.status; 
-    console.log(this.status)      
+    console.log(this.thumpsUp);
+    this.status = !this.status;
+    console.log(this.status);
   }
-
-
 }
 
-
 export class DialogOverviewExampleDialog {
-
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }

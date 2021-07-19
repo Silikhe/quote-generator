@@ -1,4 +1,4 @@
-import { QuotesService } from './services/quotes.service';
+import { QuotesService } from './models/services/quotes.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';

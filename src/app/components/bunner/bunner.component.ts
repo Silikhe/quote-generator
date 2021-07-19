@@ -1,4 +1,4 @@
-import { QuotesService } from './../../services/quotes.service';
+import { QuotesService } from './../../models/services/quotes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

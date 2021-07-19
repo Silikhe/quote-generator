@@ -275,3 +275,12 @@
     top: 8px;
     left: 6px;
 } */
+
+.date{
+    position: absolute;
+    bottom: 5px ;
+    right: 20px;
+    color:#fff;
+    font-style: italic;
+    font-size: 13px;
+}
