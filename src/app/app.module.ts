@@ -25,6 +25,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { from } from 'rxjs';
 import { environment } from '../environments/environment';
+import { FooterComponent } from './components/footer/footer.component';
+import { DevComponent } from './components/dev/dev.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { environment } from '../environments/environment';
     QuotesComponent,
     ModalComponent,
     MyquotesComponent,
+    FooterComponent,
+    DevComponent,
   ],
   imports: [
     BrowserModule,
