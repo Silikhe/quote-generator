@@ -1,7 +1,7 @@
 import { QuotesService } from './../../services/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { Quote } from './../../models/Quote';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-myquotes',
@@ -15,10 +15,8 @@ export class MyquotesComponent implements OnInit {
     imgUrl: '',
   };
 
-
   quotes: Quote[];
   constructor(public service: QuotesService, private dialog: MatDialog) {}
-
 
   ngOnInit(): void {
     console.log('Run');
@@ -38,12 +36,11 @@ export class MyquotesComponent implements OnInit {
     this.onClear();
   }
 
-onCreate(){
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
-  dialogConfig.width = "60%"; 
- this.dialog.open(MyquotesComponent, dialogConfig)
-}
-
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    this.dialog.open(MyquotesComponent, dialogConfig);
+  }
 }

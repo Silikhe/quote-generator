@@ -9,6 +9,8 @@ import { Quote } from './../../models/Quote';
 export class QuotesComponent implements OnInit {
   quotes: Quote[];
 
+  public thumpsUp: number = 0;
+
   constructor(public service: QuotesService) {}
 
   ngOnInit(): void {
@@ -19,8 +21,27 @@ export class QuotesComponent implements OnInit {
     });
   }
 
-  deleteQuote(event: Event, quote: Quote) {
-    alert(`Are you sure you want to delete${quote}`);
+  deleteQuote(event: any, quote: Quote) {
+    alert(`Are you sure you want to delete - ${quote.quote}`);
     this.service.deleteQuote(quote);
+    console.log(event.target);
   }
+
+  status: boolean = false;
+
+  thumbUp(){
+    this.thumpsUp++;
+    console.log(this.thumpsUp)
+    this.status = !this.status; 
+          
+  }
+
+  thumbDown(){
+    this.thumpsUp--;
+    console.log(this.thumpsUp)
+    this.status = !this.status; 
+    console.log(this.status)      
+  }
+
+
 }
