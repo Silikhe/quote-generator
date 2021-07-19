@@ -5,7 +5,7 @@
 export const environment = {
   production: false
 };
-
+// Added firebase config over here to fetch data from realtime database
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
