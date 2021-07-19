@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [ "@firebase/app", "firebase/app", "@firebase/database", "@firebase/util", "@firebase/component", "@firebase/auth"],
             "outputPath": "dist/quote-gen",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -2,8 +2,8 @@ import { QuotesService } from './services/quotes.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AppComponent } from './app.component';
@@ -18,9 +18,12 @@ import { ModalComponent } from './components/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyquotesComponent } from './components/myquotes/myquotes.component';
 import { AngularFireModule } from '@angular/fire';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { from } from 'rxjs';
-import {environment} from '../environments/environment'
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,11 +35,13 @@ import {environment} from '../environments/environment'
     SampleComponent,
     QuotesComponent,
     ModalComponent,
-    MyquotesComponent
+    MyquotesComponent,
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
+    FormsModule,
     NgbModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -44,9 +49,10 @@ import {environment} from '../environments/environment'
     MatInputModule,
     MatCardModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [QuotesService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MyquotesComponent]
 })
-export class AppModule { }
+export class AppModule {}

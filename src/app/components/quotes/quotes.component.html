@@ -1,8 +1,10 @@
-<div class="container mt-5 mb-5 mx-auto" *ngIf="quotes?.length > 0;else noItems">
+
+
+<div class="container mt-5 mb-5 mx-auto" *ngIf="quotes.length > 0;">
     <div class="row">
         <div class="col-md-4">
-            <div class="containers p-2">
-                <div class="card-carousel" *ngFor= "let quote of quotes">
+            <div class="containers p-2" *ngFor="let quote of quotes">
+                <div class="card-carousel" (dbclick)="deleteQuote($event, quote)">
                     <header>
                         <span id="pagination-count" class="pagination-count">122</span>
                         <span class="view">
@@ -25,10 +27,8 @@
     </div>
 </div>
 
-<ng-template #niItems>
-    <!-- <mat-card> -->
-        <div class="text-center mb-3 mx-auto container">
-           <h4>No quotes created yet</h4>
-        </div>
-    <!-- </mat-card> -->
-</ng-template>
+<div *ngIf="quotes.length == 0;" class="text-center mb-3 mx-auto container">
+    <mat-card>
+        <h4>No quotes created yet</h4>
+    </mat-card>
+</div>
