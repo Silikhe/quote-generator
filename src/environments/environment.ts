@@ -13,7 +13,7 @@ export const environment = {
     appId: "1:111644612898:web:59023ca49e078555c3ad7b"
   }
 };
-
+// Added firebase config over here to fetch data from realtime database
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
