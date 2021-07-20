@@ -18,7 +18,9 @@ export class MyquotesComponent implements OnInit {
     quote: '',
     credit: '',
     imgUrl: '',
-    date: Timestamp.now()
+    date: Timestamp.now(),
+    fav: false,
+    vote: 0
   };
 
   div: boolean = false;

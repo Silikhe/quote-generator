@@ -33,6 +33,7 @@ import { FavouriteComponent } from './components/favourite/favourite.component';
 import { HomeComponent } from './components/home/home.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { TimeDPipe } from './pipes/time-d.pipe';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { TimeDPipe } from './pipes/time-d.pipe';
     HomeComponent,
     DateAgoPipe,
     TimeDPipe,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

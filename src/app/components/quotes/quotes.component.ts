@@ -32,12 +32,14 @@ export class QuotesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('Run');
+    // console.log('Run');
     this.service.getQuotes().subscribe((quotes) => {
       console.log(quotes[0].date.seconds);
       this.quotes = quotes;
     });
   }
+
+  
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
@@ -46,7 +48,7 @@ export class QuotesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this.animal = result;
     });
   }
@@ -57,7 +59,7 @@ export class QuotesComponent implements OnInit {
 
   deleteQuote(event: any, quote: Quote) {
     // this.openDialog();
-    alert(`Are you sure you want to delete - ${quote.quote}`);
+    alert(`Are you sure you want to delete quote by - ${quote.credit}`);
     this.service.deleteQuote(quote);
     console.log(event.target);
     this.openSnackBar(
@@ -65,6 +67,20 @@ export class QuotesComponent implements OnInit {
       `Dismis`
     );
   }
+
+
+  favQuote(event: any, quote: Quote) {
+    // this.openDialog();
+    // alert(`Are you sure you want to delete quote by - ${quote.credit}`);
+    this.service.deleteQuote(quote);
+    console.log(event.target);
+    this.openSnackBar(
+      `You have deleted quote "${quote.quote} " created by ${quote.credit}`,
+      `Dismis`
+    );
+  }
+
+  
 
   status: boolean = false;
 

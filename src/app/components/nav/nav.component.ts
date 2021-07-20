@@ -1,4 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { QuotesService } from './../../models/services/quotes.service';
+import { Component, HostListener, OnInit, Output, EventEmitter } from '@angular/core';
+// import * as EventEmitter from 'events';
 
 @Component({
   selector: 'app-nav',
@@ -7,18 +9,24 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  navbarfixed:boolean = false;
-  constructor() {}
+  navbarfixed: boolean = false;
+  @Output() isLogout = new EventEmitter()
+  constructor(public firebaseService: QuotesService) {}
 
   ngOnInit(): void {
-   
+
   }
 
-  @HostListener('window:scroll', ['$event']) onscroll(){
-    if(window.scrollY > 250){
-      this.navbarfixed = true
-    }else{
-      this.navbarfixed = false
+  logOut(){
+    this.firebaseService.logout()
+    this.isLogout.emit
+  }
+
+  @HostListener('window:scroll', ['$event']) onscroll() {
+    if (window.scrollY > 250) {
+      this.navbarfixed = true;
+    } else {
+      this.navbarfixed = false;
     }
   }
 }

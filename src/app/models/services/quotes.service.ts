@@ -36,6 +36,8 @@ export class QuotesService {
   name: string;
 
   isLoggedIn = false;
+
+  myFavQuotes = false;
   constructor(
     public afs: AngularFirestore,
     private dialog: MatDialog,
@@ -60,22 +62,26 @@ export class QuotesService {
   }
 
   async sighin(email: string, password: string) {
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password).then(res=>{
-      this.isLoggedIn = true
-      localStorage.setItem('user',JSON.stringify(res.user))
-    })
+    await this.firebaseAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((res) => {
+        this.isLoggedIn = true;
+        localStorage.setItem('user', JSON.stringify(res.user));
+      });
   }
 
   async sighup(email: string, password: string) {
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password).then(res=>{
-      this.isLoggedIn = true
-      localStorage.setItem('user',JSON.stringify(res.user))
-    })
+    await this.firebaseAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        this.isLoggedIn = true;
+        localStorage.setItem('user', JSON.stringify(res.user));
+      });
   }
 
-  logout(){
-    this.firebaseAuth.signOut()
-    localStorage.removeItem('user')
+  logout() {
+    this.firebaseAuth.signOut();
+    localStorage.removeItem('user');
   }
 
   getQuotes() {
@@ -119,6 +125,16 @@ export class QuotesService {
     this.quoteDoc = this.afs.doc(`quotes/${quote.id}`);
     this.quoteDoc.delete();
     // console.log(quote.id)
+  }
+
+  favQuote(quote: Quote) {
+    // this.quoteCollection.update(quote.fav);
+    this.quoteDoc = this.afs.doc(`quotes/${quote.fav}`);
+    // DatabaseRef.ref('users/' + myuser.uid).update(updated_user_info)
+    // if( (this.quoteDoc)){
+
+    // }
+    console.log("here", quote.fav)
   }
 
   onCreate() {
