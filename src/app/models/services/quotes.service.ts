@@ -6,6 +6,7 @@ import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 import {
   AngularFirestore,
@@ -34,8 +35,15 @@ export class QuotesService {
   animal: string;
   name: string;
 
-  constructor(public afs: AngularFirestore, private dialog: MatDialog) {
-    this.quoteCollection = this.afs.collection('quotes');
+  isLoggedIn = false;
+  constructor(
+    public afs: AngularFirestore,
+    private dialog: MatDialog,
+    public firebaseAuth: AngularFireAuth
+  ) {
+    this.quoteCollection = this.afs.collection('quotes', (ref) =>
+      ref.orderBy('quote', 'asc')
+    );
     // this.quotes = this.afs.collection('quotes').valueChanges();
     this.quotes = this.afs
       .collection('quotes')
@@ -51,7 +59,22 @@ export class QuotesService {
       );
   }
 
+  async sighin(email: string, password: string) {
+    await this.firebaseAuth.signInWithEmailAndPassword(email, password).then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
+    })
+  }
+
+  async sighin(email: string, password: string) {
+    await this.firebaseAuth.signInWithEmailAndPassword(email, password).then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
+    })
+  }
+
   getQuotes() {
+    // console.log(this.quotes)
     return this.quotes;
   }
 

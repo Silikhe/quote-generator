@@ -1,7 +1,7 @@
 import { QuotesService } from './models/services/quotes.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,12 +21,18 @@ import { AngularFireModule } from '@angular/fire';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { from } from 'rxjs';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { DevComponent } from './components/dev/dev.component';
+import { FavouriteComponent } from './components/favourite/favourite.component';
+import { HomeComponent } from './components/home/home.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { TimeDPipe } from './pipes/time-d.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +47,11 @@ import { DevComponent } from './components/dev/dev.component';
     MyquotesComponent,
     FooterComponent,
     DevComponent,
+    routingComponents,
+    FavouriteComponent,
+    HomeComponent,
+    DateAgoPipe,
+    TimeDPipe,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +67,7 @@ import { DevComponent } from './components/dev/dev.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MatSnackBarModule,
+    MatProgressBarModule,
   ],
   providers: [QuotesService],
   bootstrap: [AppComponent],

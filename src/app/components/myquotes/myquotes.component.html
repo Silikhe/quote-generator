@@ -20,12 +20,21 @@
                 <input formControlName="credit" [(ngModel)]="quote.credit" matInput placeholder="Silas Silikhe">
                 <mat-error>Give credits</mat-error>
             </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Image Url</mat-label>
+                <input matInput placeholder="mxz.jpg" type="date" formControlName="date" [(ngModel)]="quote.date"
+                    value="">
+            </mat-form-field>
             <div class="m-3">
                 <button type="submit" value="Submit" [disabled]="service.form.invalid" class="btn custom-btn rounded-pill">Submit</button>
                 <div class="float-right icon" (click)="onClear()">
                     <i class="far fa-trash-alt"></i>
                 </div>
             </div>
+           <div class="container mt-5" *ngIf="div">
+               <p class="mb-3">Creating a quote</p>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+           </div>
         </form>
     </mat-card>
 

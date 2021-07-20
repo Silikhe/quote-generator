@@ -13,11 +13,11 @@ export interface DialogData {
   name: string;
 }
 @Component({
-  selector: 'app-quotes',
-  templateUrl: './quotes.component.html',
-  styleUrls: ['./quotes.component.css'],
+  selector: 'app-allquotes',
+  templateUrl: './allquotes.component.html',
+  styleUrls: ['./allquotes.component.css']
 })
-export class QuotesComponent implements OnInit {
+export class AllquotesComponent implements OnInit {
   quotes: Quote[];
 
   public thumpsUp: number = 0;
@@ -34,7 +34,7 @@ export class QuotesComponent implements OnInit {
   ngOnInit(): void {
     console.log('Run');
     this.service.getQuotes().subscribe((quotes) => {
-      console.log(quotes[0].date.seconds);
+      console.log("This is quotes" + quotes);
       this.quotes = quotes;
     });
   }

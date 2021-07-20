@@ -1,7 +1,15 @@
-<div class="container mt-5 mb-5 mx-auto" *ngIf="quotes.length > 0;">
+<div>
+    <!-- <div *ngIf="quotes.length == 0;" class="text-center mb-3 mx-auto container">
+        <mat-card>
+            <h1>No quotes created yet</h1>
+            <img src="../../../assets/images/images.png" class="img-quote" alt="">
+            <p>Quotes will be displayed here</p>
+        </mat-card>
+    </div> -->
+    <div class="container mt-5 mb-5 mx-auto">
     <div class="row">
-        <div class="col-md-4" *ngFor="let quote of quotes">
-            <div class="containers p-2" (dblclick)="deleteQuote($event, quote)">
+        <div class="col-md-4" *ngFor="let quote of quotes | slice:0:3">
+            <div class="containers p-2 cont" (dblclick)="deleteQuote($event, quote)">
                 <div class="card-carousel">
                     <header>
                         <span id="pagination-count" class="pagination-count">{{thumpsUp}}</span>
@@ -23,20 +31,20 @@
                             <p class="author">- {{quote.credit}}</p>
                         </div>
                     </div>
-                    <p class="float-right date">1 minute ago</p>
+                    <p class="float-right date">{{quote.date.toDate() | dateAgo }}</p>
                 </div>
                 <span id="hearted" class="hearted"></span>
-                
+
             </div>
         </div>
     </div>
+    <div class="container m-3 text-center mt-3">
+        <a href="all-quotes" >
+            <app-button color="#F94637" col="blue" text="View All Quotes"></app-button>
+        </a>
+    </div>
+
+
 </div>
 
-<div *ngIf="quotes.length == 0;" class="text-center mb-3 mx-auto container">
-    <mat-card>
-        <h1>No quotes created yet</h1>
-        <img src="../../../assets/images/images.png" class="img-quote" alt="">
-        <p>Quotes will be displayed here</p>
-    </mat-card>
 </div>
-

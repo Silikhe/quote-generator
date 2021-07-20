@@ -1,0 +1,19 @@
+.bg {
+  background-image: url("../../../assets/images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh;
+  height: 100%;
+}
+
+.sec .style {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.sec {
+  font-style: italic;
+  color: #fff;
+  text-align: center;
+}
