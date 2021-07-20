@@ -73,6 +73,11 @@ export class QuotesService {
     })
   }
 
+  logout(){
+    this.firebaseAuth.signOut()
+    localStorage.removeItem('user')
+  }
+
   getQuotes() {
     // console.log(this.quotes)
     return this.quotes;
