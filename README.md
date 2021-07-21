@@ -1,27 +1,50 @@
-# QuoteGen
+# Quote App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+#### A site to read and create quote, july, 2021
 
-## Development server
+#### By **Silas Silikhe**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Description
 
-## Code scaffolding
+This is a website where a user can perform all the CRUD functionalitiess .
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+###How it wors 🔧!
+#### A user can create a quote as follows
+1. Click on create button
+![screenshot-localhost_4200-2021 07 21-03_39_00](https://user-images.githubusercontent.com/65366942/126412521-df8e58f2-44bf-4a7b-97f0-b2b56feef7e3.png)
 
-## Build
+2. User creates a quote
+![screenshot-localhost_4200-2021 07 21-03_42_27 (1)](https://user-images.githubusercontent.com/65366942/126412814-512f9d33-0419-4d8e-afd7-52a28f9a0496.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### A user can view some quotes also all by navigating to all quotes
+![screenshot-localhost_4200-2021 07 21-03_46_26](https://user-images.githubusercontent.com/65366942/126413046-c167f138-5dbd-48c3-a36e-e54f284a736a.png)
 
-## Running unit tests
+#### User can reach us easily
+![screenshot-localhost_4200-2021 07 21-03_48_43](https://user-images.githubusercontent.com/65366942/126413177-d533f891-7b94-4eff-a0b7-928ef860c3ed.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Setup/Installation Requirements
 
-## Running end-to-end tests
+- copy the url on arrow down
+- Clone on your computer
+- npm install 
+- ng serve
+- open the app to the default port 4200 (http://localhost:4200)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Known Bugs
 
-## Further help
+- Authentication
+- Double click to add to favourite
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Technologies Used
+
+Angular, Angular material, TravisCi and firebase
+
+## Support and contact details
+
+silikhesilas@gmail.com on slack Silikhe
+
+### License
+
+Read our [licences](./License)
+Copyright (c) 2021 **Silas Silikhe**
+
