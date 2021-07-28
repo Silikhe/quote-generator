@@ -8,7 +8,7 @@
 
 This is a website where a user can perform all the CRUD functionalitiess .
 
-###How it wors 🔧!
+### How it wors 🔧!
 #### A user can create a quote as follows
 1. Click on create button
 ![screenshot-localhost_4200-2021 07 21-03_39_00](https://user-images.githubusercontent.com/65366942/126412521-df8e58f2-44bf-4a7b-97f0-b2b56feef7e3.png)
